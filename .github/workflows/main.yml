@@ -14,7 +14,7 @@ jobs:
       - name: Sync with upstream
         uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
         with:
-          upstream_repository: ORIGINAL_OWNER/ORIGINAL_REPOSITORY  # 替换为上游仓库
+          upstream_repository: cmliu/epeius  # 上游仓库
           upstream_branch: main  # 上游仓库的分支
           target_branch: main  # 你的分支
           github_token: ${{ secrets.GITHUB_TOKEN }}
