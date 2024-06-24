@@ -1,0 +1,21 @@
+name: Sync Fork with Upstream
+on:
+  schedule:
+    - cron: "0 0 * * *"  # 每天0点执行一次
+  workflow_dispatch:
+jobs:
+  sync_with_upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: main  # 你的默认分支
+      - name: Sync with upstream
+        uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
+        with:
+          upstream_repository: ORIGINAL_OWNER/ORIGINAL_REPOSITORY  # 替换为上游仓库
+          upstream_branch: main  # 上游仓库的分支
+          target_branch: main  # 你的分支
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git_pull_args: --strategy-option theirs  # 发生冲突时使用上游仓库的内容
