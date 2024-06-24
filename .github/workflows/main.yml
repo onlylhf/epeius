@@ -17,5 +17,4 @@ jobs:
           upstream_repository: cmliu/epeius  # 上游仓库
           upstream_branch: main  # 上游仓库的分支
           target_branch: main  # 你的分支
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           git_pull_args: --strategy-option theirs  # 发生冲突时使用上游仓库的内容
